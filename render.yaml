@@ -1,14 +1,6 @@
 services:
   - type: web
     name: diskwala-api
-    runtime: python
+    runtime: docker          # <-- Changed from 'python' to 'docker'
     plan: free
-    region: oregon               # you can change this
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
-    pythonVersion: 3.11.0        # <-- THIS FORCES THE VERSION
-    envVars:
-      - key: REQUEST_TIMEOUT
-        value: 10
-      - key: DISKWALA_API_BASE
-        value: https://dudadapid.diskwala.com/api/v1
+    repo: https://github.com/RohitTanwar909/thedisk
